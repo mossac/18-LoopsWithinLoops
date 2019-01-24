@@ -3,8 +3,8 @@ This project demonstrates NESTED LOOPS (i.e., loops within loops)
 in the context of SEQUENCES OF SUB-SEQUENCES.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Aidan Moss.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -117,7 +117,7 @@ def multiply_numbers(sequence_of_lists):
        [FYI: This 'can be multiplied ...' is an example of DUCK TYPING.]
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #  ** READ THE TESTS that have been written for you (ABOVE).
     #  ** ASK QUESTIONS if you do not understand the TESTS (ABOVE).
     #
@@ -128,6 +128,12 @@ def multiply_numbers(sequence_of_lists):
     #             to loop through it in the INNER loop.
     #        -- See   m2e_nested_loops_in_sequences   as needed.
     # ------------------------------------------------------------------
+    new_List = ()
+    for k in range(len(sequence_of_lists)):
+        new_List=sequence_of_lists[k]
+        for j in range(len(new_List)):
+            new_List[j] =new_List[j] * (k+1)
+    return  new_List
 
 
 def run_test_sum_numbers():
@@ -153,6 +159,17 @@ def run_test_sum_numbers():
     print('Expected and actual are:', expected, answer)
 
     # TO DO 3 (continued): Add your ADDITIONAL test(s) here:
+    expected = 100
+    answer = sum_numbers(([25], [50], [25]))
+    print('Expected and actual are:', expected, answer)
+
+    expected = 0
+    answer = sum_numbers(([0]))
+    print('Expected and actual are:', expected, answer)
+
+    expected = 37
+    answer = sum_numbers(([2], [18], [17]))
+    print('Expected and actual are:', expected, answer)
 
 
 def sum_numbers(seq_seq):
@@ -168,7 +185,14 @@ def sum_numbers(seq_seq):
     # ------------------------------------------------------------------
     # TODO: 4. Implement and test this function.
     #   Note that you should write its TEST function first (above).
-    # ------------------------------------------------------------------
+    # -------------- ----------------------------------------------------
+    new_List =()
+    total =0
+    for k in range(len(seq_seq)):
+        new_List = seq_seq[k]
+        for k in range(len(new_List)):
+            total = new_List[k] + total
+    return new_List
 
 
 def run_test_print_characters():
